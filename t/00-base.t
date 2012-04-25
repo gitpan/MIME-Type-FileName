@@ -14,4 +14,16 @@ use strict;
 my $mimetype = MIME::Type::FileName::guess ("my-file.xls");
 is ($mimetype, 'application/vnd.ms-excel');
 
+$mimetype = MIME::Type::FileName::guess ("my-file.blah");
+is ($mimetype, 'application/octet-stream');
+
+$mimetype = MIME::Type::FileName::guess ("MYFILE.XLS");
+is ($mimetype, 'application/vnd.ms-excel');
+
+$mimetype = MIME::Type::FileName::guess ("MYFILE.FOOBLAH");
+is ($mimetype, 'application/octet-stream');
+
+$mimetype = MIME::Type::FileName::guess ("MYFILE.FOOBLAH.XLS");
+is ($mimetype, 'application/vnd.ms-excel');
+
 Test::More::done_testing();

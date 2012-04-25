@@ -52,11 +52,11 @@ while (<DATA>) {
 }
 
 sub guess {
-    my $file = shift;
+    my $file = lc(shift);
     while ($file =~ s/^.*?\.//) {
         $TYPE{$file} and return $TYPE{$file};
     }
-    return;
+    return 'application/octet-stream';
 }
 
 
