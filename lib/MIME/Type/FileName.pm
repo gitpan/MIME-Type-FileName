@@ -44,7 +44,11 @@ package MIME::Type::FileName;
 use warnings;
 use strict;
 
+our $VERSION = "1.0";
+
 our %TYPE = ();
+
+
 while (<DATA>) {
     chomp();
     my ($ext, $mime) = split /\s+/, $_;
